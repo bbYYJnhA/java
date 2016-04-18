@@ -35,8 +35,8 @@ public class Naloga1 {
 		Map<String, Integer> besede = frekvenceBesed("hisa.txt");
 		for (String string: besede.keySet()){
 
-            String key = name.toString();
-            String value = besede.get(name).toString();  
+            String key = besede.toString();
+            String value = besede.get(key).toString();  
             System.out.println(key + " " + value);  
 
 
