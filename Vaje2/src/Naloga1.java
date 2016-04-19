@@ -18,7 +18,7 @@ public class Naloga1 {
 		StringTokenizer st = new StringTokenizer(vrstica, " .,[]<>...");
 			while (st.hasMoreTokens()){
 				String beseda = st.nextToken();
-				if (slovar.containsKey(beseda)){
+				if (!slovar.containsKey(beseda)){
 					slovar.put(beseda, 1);
 				}
 				else{
@@ -33,6 +33,7 @@ public class Naloga1 {
 	public static void main(String[] args) throws IOException
 	{
 		Map<String, Integer> besede = frekvenceBesed("hisa.txt");
+		//System.out.println(besede);
 		for (String string: besede.keySet()){
 
             String key = besede.toString();
@@ -42,5 +43,4 @@ public class Naloga1 {
 
 } 
 	}
-
 }
