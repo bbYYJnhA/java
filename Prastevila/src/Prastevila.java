@@ -11,7 +11,7 @@ public class Prastevila {
 
 	/**
 	 * @param n
-	 * @return seznam praötevil do n
+	 * @return seznam pra≈°tevil do n
 	 */
 	private static ArrayList<Integer> prastevila(int n) {
 		ArrayList<Integer> pra = new ArrayList<Integer>();
@@ -35,13 +35,13 @@ public class Prastevila {
 	
 	/**
 	 * @param n
-	 * @return n-to praötevilo
+	 * @return n-to pra≈°tevilo
 	 */
 	@SuppressWarnings("unused")
 	private static int prastevilo(int n) {
 		int[] pra = new int[n];
 		pra[0] = 2;
-		int p = 3; // kandidat za naslednje praötevilo
+		int p = 3; // kandidat za naslednje pra≈°tevilo
 		for (int i = 1; i < n; i += 1) {
 			// iscemo naslednje prastevilo
 			boolean smoNasli = false;
