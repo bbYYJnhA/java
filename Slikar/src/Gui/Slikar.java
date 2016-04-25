@@ -10,8 +10,8 @@ public class Slikar {
 		JFrame okno = new GlavnoOkno();
 		okno.pack();
 		okno.setVisible(true);
-		platno = new Platno();
-		this.getContentPanel;
+//		platno = new Platno();
+//		this.getContentPanel();
 
 	}
 

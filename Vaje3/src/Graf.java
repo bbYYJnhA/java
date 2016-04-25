@@ -67,16 +67,27 @@ public class Graf {
 	
 	public static Graf poln(int n){
 		Graf g = Graf.prazen(n);
-		Map slovar = g.tocke;
 		// TODO dokonèaj
-		for(int i=0; i<n; i++){			
-			g.dodajPovezavo(g.tocka(i), g.tocka(i+1));
+		for(int i=0; i<n; i++){
+			for (Map.Entry<Object, Tocka> x : g.tocke.entrySet()){
+				//Object prva = tocke.values().iterator().next();
+				for (Map.Entry<Object, Tocka> y : g.tocke.entrySet()){
+					g.dodajPovezavo(x.getValue(), y.getValue());
+				}
+				//System.out.println(entry.getKey() + "/" + entry.getValue());
+			}
+			//g.dodajPovezavo(g.tocka(i), g.tocka(i+1));
 		}
 		return g;
 		
 	}
 	
 	
+	@Override
+	public String toString() {
+		return "Graf [tocke=" + tocke + "]";
+	}
+
 	// Ali je graf povezan?
 	public Boolean povezan(){
 		Vector<Tocka> obiskane = new Vector(0, tocke.size());
