@@ -57,9 +57,20 @@ public class Graf {
 	
 	public static Graf cikel(int n){
 		Graf g = Graf.prazen(n);
-		prazen(n);
+		//prazen(n);
 		for (int i=0; i<n; i++){
 			g.dodajPovezavo(g.tocka(i), g.tocka((i+1)%n));
+		}
+		return g;
+		
+	}
+	
+	public static Graf poln(int n){
+		Graf g = Graf.prazen(n);
+		Map slovar = g.tocke;
+		// TODO dokonèaj
+		for(int i=0; i<n; i++){			
+			g.dodajPovezavo(g.tocka(i), g.tocka(i+1));
 		}
 		return g;
 		
