@@ -8,7 +8,8 @@ import java.util.Vector;
 public class Graf {
 
 	public Map<Object, Tocka> tocke;
-
+	
+	
 	public Graf() {
 		this.tocke = new HashMap<Object, Tocka>();
 	}
@@ -24,6 +25,15 @@ public class Graf {
 	
 	public Tocka tocka(Object ime){
 		return tocke.get(ime);
+	}
+	
+	public void razporedi(double x, double y,double r){
+		int i=0;
+		for (Tocka j : tocke.values()){	
+			j.x = x - r*Math.sin((2*i*Math.PI)/tocke.size());
+			j.y = y - r*Math.cos((2*i*Math.PI)/tocke.size());
+			i +=1;
+		}
 	}
 	
 	public void dodajTocko(Tocka x){
