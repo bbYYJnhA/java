@@ -1,5 +1,7 @@
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.Vector;
 
 
@@ -67,7 +69,7 @@ public class Graf {
 	
 	public static Graf poln(int n){
 		Graf g = Graf.prazen(n);
-		// TODO dokonËaj
+		// TODO preveri ƒçe dela prav !!!
 		for(int i=0; i<n; i++){
 			for (Map.Entry<Object, Tocka> x : g.tocke.entrySet()){
 				//Object prva = tocke.values().iterator().next();
@@ -82,7 +84,18 @@ public class Graf {
 		
 	}
 	
-	
+	public static Graf polnDvodelen(int n, int m){
+		Graf g = Graf.poln(n);
+		Graf h = Graf.poln(m);
+		//for(Tocka i : tocke.values()){
+		//	
+		//}
+		return h;
+		
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Graf [tocke=" + tocke + "]";
@@ -90,12 +103,42 @@ public class Graf {
 
 	// Ali je graf povezan?
 	public Boolean povezan(){
-		Vector<Tocka> obiskane = new Vector(0, tocke.size());
-		Object prva = tocke.values().iterator().next();
-		for(Tocka i: tocke.values()){
-			obiskane.add(i);
+		//Vector<Tocka> obiskane = new Vector<Tocka>(0, tocke.size());
+		Set<Tocka> mnozica = new HashSet<Tocka>();
+		//Object prva = tocke.values().iterator().next();
+		//Kopija grafa ...
+		//Odsranitev elementa z grafa ...
+		//Preveri delovanje !!!
+		if(tocke.size() == 0){
+			return true;
 		}
-		return true;		
+		Tocka prva = tocke.values().iterator().next();
+		for(Tocka i: tocke.values()){
+			mnozica.add(prva);
+			mnozica.addAll(prva.sosedi);
+			//while (prva.contains)
+			for (Tocka j : prva.sosedi){
+				if(povezava(i, j)){
+					mnozica.add(j);
+					mnozica.addAll(j.sosedi);
+					prva = j;
+					//prva = i;
+				}
+
+			}
+			//obiskane.add(prva);
+			//obiskane.addAll(i.sosedi);
+			//obiskane.addAll(prva.sosedi);
+		
+		}
+		if (mnozica.size()==tocke.size()){
+			//System.out.println(mnozica);
+			return true;
+		}
+		else{
+			//System.out.println(mnozica);
+			return false;			
+		}		
 	}
 		
 }
