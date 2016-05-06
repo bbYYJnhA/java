@@ -13,12 +13,13 @@ public class Test {
 		f.dodajPovezavo(x, y);
 		f.dodajTocko(z);
 		Graf g = Graf.cikel(10);
-		Graf h = Graf.poln(10);		
+		Graf h = Graf.poln(42);		
 		g.razporedi(300, 300, 250);
 		//h.poln(5);
 		System.out.println(f);
 		System.out.println(g);
 		System.out.println(h);
+		h.razporedi(300, 300, 250);
 		System.out.println(f.povezan());
 		System.out.println(g.povezan());
 		System.out.println(h.povezan());
@@ -26,7 +27,7 @@ public class Test {
 		Okno okno = new Okno();
 		okno.pack();
 		okno.setVisible(true);
-		okno.platno.narisi(g);
+		okno.platno.narisi(h);
 
 	}
 

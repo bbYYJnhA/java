@@ -38,12 +38,21 @@ public class Platno extends JPanel {
 		g.setColor(Color.blue);
 		//
 		for (Tocka i : graf.tocke.values()){			
-            int x = (int) (i.x - (i.x/10));
-            int y = (int) (i.y - (i.y/10));
+            int x1 = (int) i.x; //- (i.x/10));
+            int y1 = (int) i.y; //- (i.y/10));
             //Ellipse2D.Double shape = new Ellipse2D.Double(x, y, 11, 11);
             //Elipse2D.double
-            g.fillOval(x, y, 11, 11);
+            g.fillOval(x1, y1, 5, 5);
+            for (Tocka j : graf.tocke.values()){
+            	if (graf.povezava(i, j)){
+            		int x2 = (int) j.x; // - (j.x/10));
+            		int y2= (int) j.y; // - (j.y/10));
+            		g.drawLine(x1, y1, x2, y2);
+            	}
+            }
 		}
+		
+		//for (i :)
 		
 		//g.drawLine(x1, y1, x2, y2);
 		//g.fillOval(x, y, width, height);
