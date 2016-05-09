@@ -2,7 +2,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.Vector;
 
 
 public class Graf {
@@ -95,12 +94,17 @@ public class Graf {
 	}
 	
 	public static Graf polnDvodelen(int n, int m){
-		Graf g = Graf.poln(n);
-		Graf h = Graf.poln(m);
-		//for(Tocka i : tocke.values()){
-		//	
-		//}
-		return h;
+		Graf e = new Graf();
+		Graf g = Graf.prazen(n+m);
+		Graf h = Graf.prazen(m);
+		for(Tocka i : g.tocke.values()){
+			e.dodajTocko(i);
+			for (Tocka j : h.tocke.values()){
+				e.dodajTocko(j);
+				e.dodajPovezavo(i, j);
+			}
+		}
+		return e;
 		
 	}
 

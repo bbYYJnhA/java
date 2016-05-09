@@ -24,10 +24,14 @@ public class Test {
 		System.out.println(g.povezan());
 		System.out.println(h.povezan());
 		System.out.println("Konec programa");
+		
+		Graf h1 = Graf.polnDvodelen(5, 5);
+		h1.razporedi(300, 300, 250);
+		
 		Okno okno = new Okno();
 		okno.pack();
 		okno.setVisible(true);
-		okno.platno.narisi(h);
+		okno.platno.narisi(h1);
 
 	}
 
