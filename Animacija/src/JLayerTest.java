@@ -19,8 +19,6 @@ public class JLayerTest
             System.out.println(decoder.getOutputFrequency());
             
             i++;
-
-            //do whatever with your samples
         }
 		
 	}
